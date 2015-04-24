@@ -26,7 +26,7 @@ public class Solution
             ((Movable) object).move();
         else if(object instanceof Drawable)
             ((Drawable)object).draw();
-        
+
     }
 
     static interface Movable
