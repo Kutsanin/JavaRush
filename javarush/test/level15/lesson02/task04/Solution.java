@@ -40,7 +40,7 @@ public class Solution {
             String agathaChristieOutput = author + ", " + getBook().getName() + " is a detective";
             String markTwainOutput = getBook().getName() + " book was written by " + author;
 
-            String output = "output";
+            String output ;
             //Add your code here
             if(this instanceof MarkTwainBook)
                 output = markTwainOutput;
