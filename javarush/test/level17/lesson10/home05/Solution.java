@@ -37,11 +37,9 @@ public class Solution {
 
     private synchronized void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {
         java.io.ObjectOutputStream.PutField fields = s.putFields();
-
             fields.put("value", value);
             fields.put("count", count);
             fields.put("shared", false);
-
             s.writeFields();
 
     }
