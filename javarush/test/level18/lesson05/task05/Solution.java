@@ -25,7 +25,6 @@ public class Solution {
                 reader.close();
                 file.close();
                 throw new DownloadException();
-
             }
         }
     }

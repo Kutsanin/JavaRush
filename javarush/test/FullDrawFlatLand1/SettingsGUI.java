@@ -52,6 +52,7 @@ public class SettingsGUI extends JFrame
             height = Integer.parseInt(textFieldHeight.getText());
             ActionFrame frame = new ActionFrame(width, height, fps, speed);
             frame.createFrame();
+            System.out.println("Lol");
 
 
 		}
