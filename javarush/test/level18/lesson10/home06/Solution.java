@@ -42,7 +42,7 @@ public class Solution {
 
         for(char b : c){
             if(map.containsKey(b)){
-                int val = map.get(b) + 1;
+                    int val = map.get(b) + 1;
                 map.put(b, val);
             } else {
                 map.put(b, 1);
