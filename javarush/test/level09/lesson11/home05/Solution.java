@@ -55,7 +55,7 @@ public class Solution
     }
 
 
-    public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
+    public static char[] vowels = new char[]{'a', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
 
     //метод проверяет, гласная ли буква
     public static boolean isVowel(char c)
