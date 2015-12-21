@@ -7,31 +7,25 @@ package com.javarush.test.level19.lesson05.task01;
 */
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String f1, f2;
-        f1 = reader.readLine();
-        f2 = reader.readLine();
-        FileReader in = new FileReader(f1);
-        FileWriter out = new FileWriter(f2);
-        String input = "";
-        String output = "";
-        //читаем входные данные
-        while(in.ready()) {
-            input+=(char)in.read();
-        }
-        byte[] inputB = input.getBytes();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        String fileName1 = bufferedReader.readLine();
+        String fileName2 = bufferedReader.readLine();
+        bufferedReader.close();
 
-        for(int i = 0; i < inputB.length; i++) {
-            if(i%2 == 0) {
-                out.write(inputB[i]);
-            }
-        }
-        reader.close();
-        in.close();
-        out.close();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        FileReader fileReader = new FileReader(fileName1);
+        while (fileReader.ready())
+            list.add(fileReader.read());
+        fileReader.close();
+
+        FileWriter fileWriter = new FileWriter(fileName2);
+        for (int i = 1; i < list.size(); i=i+2)
+            fileWriter.write((char)(int)list.get(i));
+        fileWriter.close();
     }
 }
