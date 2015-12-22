@@ -9,11 +9,13 @@ import java.io.*;
 Метод main реализован только для вас и не участвует в тестировании
 */
 public class Solution {
-    public static void main(String[] args) {
+
+    public static void main(java.lang.String[] args) {
+        int i = 1;
         //you can find your_file_name.tmp in your TMP directory or fix outputStream/inputStream according to your real file location
         //вы можете найти your_file_name.tmp в папке TMP или исправьте outputStream/inputStream в соответствии с путем к вашему реальному файлу
         try {
-            File your_file_name = File.createTempFile("your_file_name", null);
+            File your_file_name = File.createTempFile("saves05", ".txt", new File("C:\\jvr\\"));
             OutputStream outputStream = new FileOutputStream(your_file_name);
             InputStream inputStream = new FileInputStream(your_file_name);
 
@@ -30,6 +32,10 @@ public class Solution {
 
             loadedObject.load(inputStream);
             //check here that the object variable equals to loadedObject - проверьте тут, что object и loadedObject равны
+            object.string1.print();
+            object.string2.print();
+            loadedObject.string1.print();
+            loadedObject.string2.print();
 
             outputStream.close();
             inputStream.close();
@@ -50,14 +56,34 @@ public class Solution {
 
         public void save(OutputStream outputStream) throws Exception {
             //implement this method - реализуйте этот метод
+            PrintWriter writer = new PrintWriter(outputStream);
+            java.lang.String hasString1 = (string1 != null) ? "yes" : "no";
+            writer.println(hasString1);
+            currentValue = countStrings-1;
+            java.lang.String hasString2 = (string1 != null) ? "yes" : "no";
+            writer.println(hasString2);
+            currentValue = currentValue-1;
+            writer.close();
         }
 
         public void load(InputStream inputStream) throws Exception {
             //implement this method - реализуйте этот метод
+            int countStringsTmp = countStrings;
+            countStrings = currentValue;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            java.lang.String hasString1 = reader.readLine();
+            if(hasString1.equals("yes"))
+                this.string1 = new String();
+            java.lang.String hasString2 = reader.readLine();
+            if(hasString2.equals("yes"))
+                this.string2 = new String();
+            reader.close();
+            countStrings = countStringsTmp;
         }
     }
 
     public static int countStrings;
+    public  static int currentValue;
 
     public static class String {
         private final int number;
